@@ -8,6 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{3DC9DF
 ProjectSection(SolutionItems) = preProject
 	readme.md = readme.md
 	Dockerfile = Dockerfile
+	..\docker-compose.yml = ..\docker-compose.yml
 EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchandiseService", "src\MerchandiseService\MerchandiseService.csproj", "{F767C83F-CF03-4BBC-99EC-19362ABD7682}"
