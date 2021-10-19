@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6BE557B1-4DC2-44DD-8590-923027039CD4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{98D64449-A5AC-4C6D-9A7B-B716F86CD0DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{3DC9DF40-C58C-44FE-9A93-863F83839BA6}"
+ProjectSection(SolutionItems) = preProject
+	readme.md = readme.md
+	Dockerfile = Dockerfile
+EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchandiseService", "src\MerchandiseService\MerchandiseService.csproj", "{F767C83F-CF03-4BBC-99EC-19362ABD7682}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F767C83F-CF03-4BBC-99EC-19362ABD7682}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F767C83F-CF03-4BBC-99EC-19362ABD7682}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F767C83F-CF03-4BBC-99EC-19362ABD7682}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F767C83F-CF03-4BBC-99EC-19362ABD7682}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F767C83F-CF03-4BBC-99EC-19362ABD7682} = {6BE557B1-4DC2-44DD-8590-923027039CD4}
+	EndGlobalSection
+EndGlobal
