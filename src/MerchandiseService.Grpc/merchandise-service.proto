@@ -1,0 +1,21 @@
+﻿syntax = "proto3";
+option csharp_namespace = "MerchandiseService.Grpc";
+package MerchandiseService;
+
+service MerchandiseServiceGrpc{
+    rpc RequestMerch(RequestMerchRequest) returns (RequestMerchResponse);
+    rpc GetInformationAboutIssueOfMerch(GetInformationAboutIssueOfMerchRequest) returns (GetInformationAboutIssueOfMerchResponse);
+}
+
+message RequestMerchRequest{
+    
+}
+message RequestMerchResponse{
+}
+
+message GetInformationAboutIssueOfMerchRequest{
+    
+}
+message GetInformationAboutIssueOfMerchResponse{
+}
+
