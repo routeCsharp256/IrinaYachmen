@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using MediatR;
+using MerchandiseService.HttpModels;
+using MerchandiseService.Infrastructure.Commands;
+using MerchandiseService.Infrastructure.Queries;
 using MerchandiseService.Models;
 using MerchandiseService.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -12,27 +16,39 @@ namespace MerchandiseService.Controllers
     public class MerchandiseController : ControllerBase
     {
         private readonly IMerchandiseService _merchandiseService;
+        private readonly IMediator _mediator;
 
-        public MerchandiseController(IMerchandiseService merchandiseService)
+        public MerchandiseController(IMediator mediator)
         {
-            _merchandiseService = merchandiseService;
+            _mediator = mediator;
         }
-        [HttpGet("{id:long}")]
-        public async Task<IActionResult> RequestMerch(long id, CancellationToken token)
+        [HttpGet("merch/{id:long}")]
+        public async Task<ActionResult<int>> GetInformationAboutIssueOfMerch(long id, CancellationToken token)
         {
-            await _merchandiseService.RequestMerch(id, token);
-            return Ok();
+            var query = new GetInfoAboutRequestMerchQuery()
+            {
+                Sku = id
+            };
+            var result = await _mediator.Send(query, token);
+            return result;
         }
         
-        [HttpGet]
-        public async Task<IActionResult> GetInformationAboutIssueOfMerch(CancellationToken token)
+        [HttpPost]
+        public async Task<IActionResult> RequestMerch(RequestMerchModelRequest model, CancellationToken token)
         {
-            var merchandiseItem = await _merchandiseService.GetInformationAboutIssueOfMerch(token);
-            if (merchandiseItem is null)
+            var createRequestMerchCommand = new CreateRequestMerchCommand()
             {
-                return NotFound();
-            }
-            return Ok(merchandiseItem);
+                Sku = model.Sku,
+                Quantity = model.Quantity,
+                Status = model.Status,
+                EmployeeSku = model.EmployeeSku,
+                RequestDateTime = model.RequestDateTime,
+                MerchPackType = model.MerchPack
+            };
+
+            var result = await _mediator.Send(createRequestMerchCommand, token);
+            
+            return Ok(result);
         }
     }
 }
