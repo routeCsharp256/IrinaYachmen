@@ -9,6 +9,7 @@ ProjectSection(SolutionItems) = preProject
 	readme.md = readme.md
 	Dockerfile = Dockerfile
 	..\docker-compose.yml = ..\docker-compose.yml
+	MerchandiseServise.drawio = MerchandiseServise.drawio
 EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchandiseService", "src\MerchandiseService\MerchandiseService.csproj", "{F767C83F-CF03-4BBC-99EC-19362ABD7682}"
