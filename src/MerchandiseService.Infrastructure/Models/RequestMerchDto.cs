@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace MerchandiseService.HttpModels
+namespace MerchandiseService.Infrastructure.Models
 {
-    public record RequestMerchandiseResponse
+    public class RequestMerchDto
     {
         public long Sku { get; init; }
         
@@ -11,5 +11,7 @@ namespace MerchandiseService.HttpModels
         public int Quantity { get; init; }
         
         public int Status { get; init; }
+
+        public DateTime RequestDateTime { get; init; }
     }
 }

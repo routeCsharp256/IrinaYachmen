@@ -23,14 +23,14 @@ namespace MerchandiseService.Domain.AggregatesModel
         
         public static MerchPackType From(int id)
         {
-            var state = List().SingleOrDefault(s => s.Id == id);
+            var merchPack = List().SingleOrDefault(s => s.Id == id);
 
-            if (state == null)
+            if (merchPack == null)
             {
                 throw new ArgumentException($"Possible values for Status: {String.Join(",", List().Select(s => s.Name))}");
             }
 
-            return state;
+            return merchPack;
         }
 
     }

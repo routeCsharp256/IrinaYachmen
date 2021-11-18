@@ -17,14 +17,14 @@ namespace MerchandiseService.Domain.AggregatesModel
 
         public Quantity Quantity { get; private set; }
 
-        public Date RequestDateTime { get; set; }
+        public DateTime RequestDateTime { get; set; }
         
         
 
         public RequestMerch(Sku sku,
             MerchPack merchPackType,
             Employee employee,
-            Date date,
+            DateTime date,
             Quantity quantity,
             Status status)
         {

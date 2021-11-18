@@ -11,7 +11,7 @@ namespace MerchandiseService.HttpClients
     
         public interface IMerchandiseHttpClient
         {
-            Task<List<MerchandiseItemResponse>> GetInformationAboutIssueOfMerch(CancellationToken token);
+            Task<List<RequestMerchandiseResponse>> GetInformationAboutIssueOfMerch(CancellationToken token);
             Task RequestMerch(long id, CancellationToken token);
         }
 
@@ -24,11 +24,11 @@ namespace MerchandiseService.HttpClients
                 _httpClient = httpClient;
             }
 
-            public async Task<List<MerchandiseItemResponse>> GetInformationAboutIssueOfMerch(CancellationToken token)
+            public async Task<List<RequestMerchandiseResponse>> GetInformationAboutIssueOfMerch(CancellationToken token)
             {
                 using var response = await _httpClient.GetAsync("api/merch", token);
                 var body = await response.Content.ReadAsStringAsync(token);
-                return JsonSerializer.Deserialize<List<MerchandiseItemResponse>>(body);
+                return JsonSerializer.Deserialize<List<RequestMerchandiseResponse>>(body);
             }
 
             public async Task RequestMerch(long id, CancellationToken token)

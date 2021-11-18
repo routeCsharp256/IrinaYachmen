@@ -16,9 +16,9 @@ namespace MerchandiseService.Domain.Tests
                 new Sku(149568),
                 new MerchPack(MerchPackType.StarterPack),
                 new Employee(23),
-                new Date(DateTime.Now),
+                DateTime.Now,
                 new Quantity(10),
-                Status.Awaiting);
+                Status.InProgress);
 
             var valueToIncrease = 10;
         
@@ -38,9 +38,9 @@ namespace MerchandiseService.Domain.Tests
                 new Sku(149568),
                 new MerchPack(MerchPackType.StarterPack),
                 new Employee(23),
-                new Date(DateTime.Now),
+                DateTime.Now,
                 new Quantity(10),
-                Status.Awaiting);
+                Status.InProgress);
             var valueToIncrease = -10;
             //Act
             

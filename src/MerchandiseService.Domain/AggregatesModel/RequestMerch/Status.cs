@@ -9,9 +9,8 @@ namespace MerchandiseService.Domain.AggregatesModel
         : Enumeration
     {
         public static Status Cancelled = new Status(1, nameof(Cancelled).ToLowerInvariant());
-        public static Status Awaiting = new Status(2, nameof(Awaiting).ToLowerInvariant());
-        public static Status RequestConfirmed = new Status(3, nameof(RequestConfirmed).ToLowerInvariant());
-        public static Status Successed = new Status(4, nameof(Successed).ToLowerInvariant());
+        public static Status InProgress = new Status(2, nameof(InProgress).ToLowerInvariant());
+        public static Status Successed = new Status(3, nameof(Successed).ToLowerInvariant());
         
 
         public Status(int id, string name)
@@ -20,7 +19,7 @@ namespace MerchandiseService.Domain.AggregatesModel
         }
 
         public static IEnumerable<Status> List() =>
-            new[] { RequestConfirmed, Successed, Awaiting, Cancelled };
+            new[] {  Successed, InProgress, Cancelled };
         
         public static Status From(int id)
         {

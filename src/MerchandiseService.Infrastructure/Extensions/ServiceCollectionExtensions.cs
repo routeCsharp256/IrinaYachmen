@@ -17,13 +17,13 @@ namespace MerchandiseService.Infrastructure.Extensions
         /// <returns>Объект <see cref="IServiceCollection"/></returns>
         public static IServiceCollection AddInfrastructureServices(this IServiceCollection services)
         {
-            services.AddScoped<IRequestMerchRepository, RequestMerchRepository>();
-            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-            services.AddMediatR(typeof(CreateRequestMerchCommandHandler).Assembly);
-            services.AddMediatR(typeof(GetInfoAboutRequestMerchQueryHandler).Assembly);
+            
+          //  services.AddMediatR(typeof(CreateRequestMerchCommandHandler).Assembly);
+          //  services.AddMediatR(typeof(GetInfoAboutRequestMerchQueryHandler).Assembly);
             
             return services;
         }
+        
         
         /// <summary>
         /// Добавление в DI контейнер инфраструктурных репозиториев
@@ -33,7 +33,9 @@ namespace MerchandiseService.Infrastructure.Extensions
         public static IServiceCollection AddInfrastructureRepositories(this IServiceCollection services)
         {
             
-            
+            Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
+            services.AddScoped<IRequestMerchRepository, RequestMerchRepository>();
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             return services;
         }
     }

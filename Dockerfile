@@ -14,6 +14,7 @@ RUN dotnet build "MerchandiseService.csproj" -c Release -o /app/build
 
 FROM build as publish
 RUN dotnet publish "MerchandiseService.csproj" -c Release -o /app/publish
+COPY "entrypoint.sh" "/app/publish/."
 
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 WORKDIR /app
@@ -25,7 +26,11 @@ WORKDIR /app
 
 COPY --from=publish /app/publish .
 
-ENTRYPOINT [ "dotnet","MerchandiseService.dll" ]
+
+RUN chmod +x entrypoint.sh
+CMD /bin/bash entrypoint.sh
+
+
 
 
 
